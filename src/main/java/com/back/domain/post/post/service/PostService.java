@@ -5,6 +5,8 @@ import com.back.domain.post.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -20,5 +22,9 @@ public class PostService {
                 author
         );
         return postResitory.save(post);
+    }
+
+    public List<Post> findAll(){
+        return postResitory.findAll();
     }
 }
