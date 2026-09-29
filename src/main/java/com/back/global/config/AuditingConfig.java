@@ -11,6 +11,6 @@ import java.util.Optional;
 public class AuditingConfig {
     @Bean
     public DateTimeProvider dateTimeProvider() {
-        return ()-> Optional.of(OffsetDateTime.now());
+        return ()-> Optional.of(OffsetDateTime.now()); //LocalDateTime과는 다름 (표준시간과 얼마만큼의 차이인가를 기준으로함)
     }
 }
