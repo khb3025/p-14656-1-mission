@@ -2,6 +2,7 @@ package com.back.global;
 
 import com.back.domain.post.post.document.Post;
 import com.back.domain.post.post.service.PostService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,7 @@ public class BaseInitData {
         return args -> {
             work1();
             work2();
+            work3();
         };
     }
 
@@ -42,6 +44,14 @@ public class BaseInitData {
         log.debug("기존 Post 전체 조회");
         for (Post post : postService.findAll()) {
             log.debug("Existing Post: {}", post);
+        }
+    }
+
+    private void work3(){
+        log.debug("기존 Post 단건 조회");
+        for (Post post : postService.findAll()) {
+            Post postRow = postService.findById(post.getId()).get();
+            log.debug("조회된 Post: {}", postRow);
         }
     }
 }
