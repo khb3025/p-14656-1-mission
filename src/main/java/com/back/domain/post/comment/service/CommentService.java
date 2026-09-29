@@ -1,6 +1,6 @@
 package com.back.domain.post.comment.service;
 
-import com.back.domain.post.comment.Comment;
+import com.back.domain.post.comment.document.Comment;
 import com.back.domain.post.comment.repository.CommentRepository;
 import com.back.domain.post.post.document.Post;
 import com.back.global.exception.NotFoundException;
