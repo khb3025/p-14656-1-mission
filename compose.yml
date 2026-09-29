@@ -7,5 +7,5 @@ services:
     environment:
       # 단일 노드 모드
       - discovery.type=single-node
-      # 보안기능 비활설화 -> 운영시는 켜야함
-      # - xpack.security.enabled=false
+      # 보안기능 비활성화 -> 운영시는 켜야함
+      - xpack.security.enabled=false

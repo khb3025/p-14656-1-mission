@@ -1,11 +1,14 @@
 package com.back.domain.post.post.service;
 
-import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import com.back.domain.post.post.repository.PostRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class PostService {
+    private final PostRepository postResitory;
     public long count() {
-        return 0;
+        return postResitory.count();
     }
 }
