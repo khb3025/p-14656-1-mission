@@ -10,9 +10,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
+@Profile("dev")
 @RequiredArgsConstructor
 @Configuration
 @Slf4j

@@ -45,4 +45,30 @@ public class PostController {
         return postService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Post findById(@PathVariable String id){
+        return postService.findById(id);
+    }
+
+    record UpdatePostRequest(
+            @NotBlank(message = "Title must not be blank")
+            @Size(max = 100, min = 1)
+            String title,
+            @NotBlank(message = "Content must not be blank")
+            String content
+    ){}
+
+    @PutMapping("/{id}")
+    public Post update(@PathVariable String id,
+                       @RequestBody @Valid UpdatePostRequest request){
+        return postService.update(id, request.title, request.content);
+    }
+
+    // 삭제에 대한 반환은 일반적으로 204
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id){
+        postService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
