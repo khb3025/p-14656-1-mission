@@ -2,6 +2,7 @@ package com.back.domain.post.post.service;
 
 import com.back.domain.post.post.document.Post;
 import com.back.domain.post.post.repository.PostRepository;
+import com.back.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,9 @@ public class PostService {
         return postResitory.findAll();
     }
 
-    public Optional<Post> findById(String id){
-        return postResitory.findById(id);
+    public Post findById(String id){
+        return postResitory.findById(id).orElseThrow(
+                () -> new NotFoundException("Post not found with id: " + id)
+        );
     }
 }
