@@ -94,7 +94,7 @@ public class BaseInitData {
                 Post post = postService.create("Post for Comment " + i, "Content for post " + i, "Author" + i);
                 String content = "This is a comment number " + i + " for post " + post.getId();
                 String author = "Commenter" + i;
-                var comment = commentService.create(post, content, author);
+                var comment = commentService.create(post.getId(), content, author);
                 log.debug("Created Comment: {}", comment);
             }
         }
@@ -122,7 +122,7 @@ public class BaseInitData {
             Post post = postService.create("Post for Comment " + i, "Content for post " + i, "Author" + i);
             String content = "This is a comment number " + i + " for post " + post.getId();
             String author = "Commenter" + i;
-            var comment = commentService.create(post, content, author);
+            var comment = commentService.create(post.getId(), content, author);
             log.debug("Created Comment: {}", comment);
         }
 

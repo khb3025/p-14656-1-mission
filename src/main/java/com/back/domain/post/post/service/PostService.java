@@ -51,4 +51,8 @@ public class PostService {
         postResitory.delete(post);
         // commentRepository.deleteByPostId(id);
     }
+
+    public boolean existsById(String id){
+        return postResitory.existsById(id);
+    }
 }
