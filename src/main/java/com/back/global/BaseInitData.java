@@ -54,4 +54,14 @@ public class BaseInitData {
             log.debug("조회된 Post: {}", postRow);
         }
     }
+
+    private void work4(){
+        log.debug("Post 단건 수정");
+        for (Post post : postService.findAll()) {
+            String newTitle = post.getTitle() + " [Updated]";
+            String newContent = post.getContent() + " This content has been updated.";
+            Post updatedPost = postService.update(post.getId(), newTitle, newContent);
+            log.debug("Updated Post: {}", updatedPost);
+        }
+    }
 }

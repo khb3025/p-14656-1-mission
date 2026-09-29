@@ -6,6 +6,7 @@ import com.back.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,5 +35,12 @@ public class PostService {
         return postResitory.findById(id).orElseThrow(
                 () -> new NotFoundException("Post not found with id: " + id)
         );
+    }
+    public Post update(String id, String title, String content){
+        Post post = this.findById(id);
+        if(title != null) post.setTitle(title);
+        if(content != null) post.setContent(content);
+        post.setLastModifiedAt(OffsetDateTime.now());
+        return postResitory.save(post);
     }
 }
