@@ -1,5 +1,6 @@
 package com.back.domain.post.post.service;
 
+import com.back.domain.post.comment.repository.CommentRepository;
 import com.back.domain.post.post.document.Post;
 import com.back.domain.post.post.repository.PostRepository;
 import com.back.global.exception.NotFoundException;
@@ -14,6 +15,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PostService {
     private final PostRepository postResitory;
+    private final CommentRepository commentRepository;
+
     public long count() {
         return postResitory.count();
     }
@@ -46,5 +49,6 @@ public class PostService {
     public void delete(String id){
         Post post = findById(id);
         postResitory.delete(post);
+        // commentRepository.deleteByPostId(id);
     }
 }
