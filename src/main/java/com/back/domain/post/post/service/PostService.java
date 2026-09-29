@@ -43,4 +43,9 @@ public class PostService {
         post.setLastModifiedAt(OffsetDateTime.now());
         return postResitory.save(post);
     }
+
+    public void delete(String id){
+        Post post = findById(id);
+        postResitory.delete(post);
+    }
 }
