@@ -40,7 +40,6 @@ public class PostService {
         Post post = this.findById(id);
         if(title != null) post.setTitle(title);
         if(content != null) post.setContent(content);
-        post.setLastModifiedAt(OffsetDateTime.now());
         return postResitory.save(post);
     }
 
