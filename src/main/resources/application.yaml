@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: back
+
+  profiles:
+    active: dev
+
+  #spring.output.ansi.enabled: 콘솔 출력 시 ANSI 컬러를 항상 활성화 (ALWAYS)
+  #logging.level.com.back: com.back 패키지의 로그 레벨을 debug로 설정
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  # 빈 객체 직렬화 시 예외 발생 방지
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+logging:
+  level:
+    com:
+      back: debug
+server:
+  port: 8080
